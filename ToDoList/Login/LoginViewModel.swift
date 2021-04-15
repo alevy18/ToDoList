@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel {
+class LoginViewModel{
     
     lazy var loginStuff = login.init()
     

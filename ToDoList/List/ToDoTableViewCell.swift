@@ -30,21 +30,25 @@ class ToDoTableViewCell: UITableViewCell {
     }
     
     
-    
+    //called when completed segmented control is switched
     @IBAction func didFinishTask(_ sender: SmartSegmentControl) {
-        let model = sender.model as? ToDo
+        let model = sender.model as? ToDoEnt
         if sender.selectedSegmentIndex == 0{
             model?.complete = false
         }else{
             model?.complete = true
         }
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.saveContext()
         delegate?.changeCompleteStatus(task: (model?.title)!)
-        
+    
     }
     
-    func setCell(toDoObj: ToDo){
+    
+    
+    func setCell(toDoObj: ToDoEnt){
         titleLbl.text = toDoObj.title
-        descriptionTextView.text = toDoObj.description
+        descriptionTextView.text = toDoObj.descrip
         deadlineTxtField.text = toDoObj.deadline
         isCOmpletedSwitch.model = toDoObj
         

@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import CoreData
 
 class BaseViewController: UIViewController, UITextFieldDelegate {
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,9 +31,23 @@ class BaseViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    typealias pushVCHandler = ((UIViewController)->())
+    
+    func pushViewController(vcIdentifier: String, handler: pushVCHandler){
+        let st = UIStoryboard.init(name: "Main", bundle: nil)
+        let vc = st.instantiateViewController(identifier: vcIdentifier)
+        navigationController?.pushViewController(vc, animated: true)
+    }
+
+//    func getViewControler(vcIdentifier: String) -> UIViewController{
+//        let st = UIStoryboard.init(name: "Main", bundle: nil)
+//        let vc = st.instantiateViewController(identifier: vcIdentifier)
+//    }
+//
+    
     
     deinit{
-        
+        print("Bye")
     }
 
     

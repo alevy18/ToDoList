@@ -15,6 +15,9 @@ class AddViewController: BaseViewController {
     
     let avm = AddViewModel.init()
     
+    var editObj: ToDoEnt?
+    var btnTitle: String?
+    
     var delegate: fillToDoCell?
     
     var datePick = datePicker.init()
@@ -47,11 +50,10 @@ class AddViewController: BaseViewController {
         let tap1 = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         deadlineText.addGestureRecognizer(tap1)
         
-        //when a cell is edited, fills in existing cell values
-        setExistingValuesPart2()
-        
         //sets text of add_editButton
-        add_editButton.setTitle(avm.buttonTitle, for: .normal)
+        setBtnTitle()
+        
+        setEditValues()
     }
 
    
@@ -61,32 +63,36 @@ class AddViewController: BaseViewController {
         for vc in arrOfVcs!{
             if vc is ListViewController {
                 delegate?.fillCell(title: titleText.text ?? "", description: descriptionText.text ?? "", deadline: deadlineText.text ?? "", index: cellBeingEdited)
+                let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                avm.toDoEntModel?.title = titleText.text ?? ""
+                avm.toDoEntModel?.descrip = descriptionText.text ?? ""
+                avm.toDoEntModel?.deadline = deadlineText.text ?? ""
+                appDelegate.saveContext()
+                
                 navigationController?.popToViewController(vc, animated: true)
                 break
             }
         }
     }
     
+    
     //sets btn title variable in avm
-    func setBtnTitlePart1(title: String){
-        avm.buttonTitle = title
+    func setBtnTitle(){
+        if btnTitle != nil{
+            avm.buttonTitle = btnTitle ?? "Add"
+            btnTitle = nil
+        }
+        add_editButton.setTitle(avm.buttonTitle, for: .normal)
     }
     
-    //fills AddVC with existing values for swiped cell
-    func setExistingValuesPart1(myObj: ToDo){
-        avm.tempTile = myObj.title
-        avm.tempDescrip = myObj.description
-        avm.tempDeadline = myObj.deadline
-    }
 
-    //sets text field text to value of existing variables in avm
-    func setExistingValuesPart2(){
-        titleText.text = avm.tempTile
-        descriptionText.text = avm.tempDescrip
-        deadlineText.text = avm.tempDeadline
-        avm.tempTile = nil
-        avm.tempDescrip = nil
-        avm.tempDeadline = nil
+    //fills AddVC with existing values for swiped cell
+    func setEditValues(){
+        avm.toDoEntModel = editObj
+        titleText.text = avm.getModelTitle()
+        descriptionText.text = avm.getModelDescrip()
+        deadlineText.text = avm.getModelDeadline()
+        
     }
     
 }

@@ -48,6 +48,21 @@ class loginViewModelTests: XCTestCase {
         let word2Test = vm?.isGreaterThanLimit(string: word2)
         XCTAssertFalse(word1Test!)
         XCTAssertTrue(word2Test!)
+//        XCTAssertFalse(word2Test!, "Your function does not return false for a word less than 15 letters")
+    }
+    
+    func testIsGreaterThanLimitLT(){
+        let word1 = "1234567890123456"
+        let word2 = "123456"
+        let word15let = "123456789012345"
+        let word1Test = vm?.isGreaterThanLimit(string: word1)
+        let word2Test = vm?.isGreaterThanLimit(string: word2)
+        let ord15Test = vm?.isGreaterThanLimit(string: word15let)
+        XCTAssertFalse(word1Test!)
+        XCTAssertTrue(word2Test!)
+        XCTAssertFalse(ord15Test!)
+        
+//        XCTAssertFalse(word2Test!, "Your function does not return false for a word less than 15 letters")
     }
     
     
@@ -62,37 +77,37 @@ class loginViewModelTests: XCTestCase {
     
     
     func testGetTask(){
-        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi")
-        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello")
+        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi", index: nil)
+        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello", index: nil)
         let task = tdvm?.getTask(index: 1)
         XCTAssertEqual(task, "hello")
     }
     
     func testGetDescription(){
-        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi")
-        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello")
+        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi", index: nil)
+        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello", index: nil)
         let descrip = tdvm?.getDescription(index: 1)
         XCTAssertEqual(descrip, "hhelloi")
     }
     
     func testGetDeadline(){
-        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi")
-        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello")
+        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi", index: nil)
+        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello", index: nil)
         let deadline = tdvm?.getDeadline(index: 1)
         XCTAssertEqual(deadline, "hihello")
     }
     
     
     func testIsComplete(){
-        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi")
-        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello")
+        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi", index: nil)
+        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello", index: nil)
         let complete = tdvm?.isComplete(index: 1)
         XCTAssertNotNil(complete, "Your function's output is nil")
     }
     
     func testGetToDo(){
-        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi")
-        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello")
+        tdvm?.addToDo(title: "hi", description: "hi", deadline: "hi", index: nil)
+        tdvm?.addToDo(title: "hello", description: "hhelloi", deadline: "hihello", index: nil)
         let secondTodo = tdvm?.getToDo(index: 1)
         XCTAssertNotNil(secondTodo)
     }

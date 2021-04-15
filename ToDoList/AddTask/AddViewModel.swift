@@ -11,8 +11,18 @@ class AddViewModel {
     
     var buttonTitle = "Add"
     
-    var tempTile: String?
-    var tempDescrip: String?
-    var tempDeadline: String?
+    var toDoEntModel: ToDoEnt?
+    
+    func getModelDescrip() -> String{
+        return toDoEntModel?.descrip ?? ""
+    }
+    
+    func getModelTitle() -> String{
+        return toDoEntModel?.title ?? ""
+    }
+    
+    func getModelDeadline() -> String{
+        return toDoEntModel?.deadline ?? ""
+    }
     
 }

@@ -6,19 +6,20 @@
 //
 
 import UIKit
+import CoreData
 
 
 class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
-    
 
     @IBOutlet weak var toDoList: UITableView!
-   
-    
+       
     let myToDoList = ToDoList.init()
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //myToDoList.convertToToDos()
         
         toDoList.delegate = self
         toDoList.dataSource = self
@@ -27,16 +28,28 @@ class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
         //adds plus bar button item
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTask))
         navigationItem.rightBarButtonItem = addButton
+        
+        //adds settings bar button item
+        let settingsButton = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(openSettings))
+        navigationItem.leftBarButtonItem = settingsButton
+        
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
-        toDoList.reloadData()
+        CD.shared.loadSavedDataToTable { (arr, error) in
+            self.myToDoList.toDoArray = arr ?? []
+            self.toDoList.reloadData()
+        }
     }
     
+    @objc func openSettings(){
+        let vc = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+        navigationController?.pushViewController(vc, animated: true)
+    }
     
 
-    
+    #warning("make a common method")
     //pushes AddViewController
     @IBAction func addNewTask(_ sender: UIBarButtonItem) {
         let st = UIStoryboard.init(name: "Main", bundle: nil)
@@ -45,21 +58,26 @@ class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+    #warning("should be a separate method in vm")
     //appends a new ToDo object to the ToDoArray in the vm
     func fillCell(title: String, description: String, deadline: String, index: Int?) {
-        myToDoList.addToDo(title: title, description: description, deadline: deadline, index: index)
+        myToDoList.addToDo(title: title, description: description, deadline: deadline, index: index) {
+            CD.shared.loadSavedDataToTable { (arr, error) in
+                self.myToDoList.toDoArray = arr!
+            }
+            self.toDoList.reloadData()
+        }
+        
         //reloading the data here stops lag from data upload on view did apear
-        toDoList.reloadData()
+        //toDoList.reloadData()
     }
     
     
-    //When reloads the table view when segmented control is changed. Causes cell alpha to change on switch.
+    //reloads the table view when segmented control is changed. Causes cell alpha to change on switch.
     func changeCompleteStatus(task: String) {
         toDoList.reloadData()
     }
     
-
 }
 
 
@@ -81,33 +99,43 @@ extension ListViewController:  UITableViewDelegate, UITableViewDataSource{
         return cell!
     }
     
-    
+    #warning("need to add fucntionality into core data and reload data")
     //opens buttons for edit and delete on side swipe
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        //retrieves cell from ToDoArray
+        let cellToEdit = self.myToDoList.getToDo(index: indexPath.row)
+        
         let edit = UIContextualAction.init(style: .normal, title: "Edit") { (action, view, completion) in
-            //retrieves cell from ToDoArray
-            let cellToEdit = self.myToDoList.getToDo(index: indexPath.row)
             
             //pushes AddViewCOntroller
             let st = UIStoryboard.init(name: "Main", bundle: nil)
             let vc = st.instantiateViewController(identifier: ViewControllerConstants.CAddViewController) as! AddViewController
+            //fill cell delegate
             vc.delegate = self
+            
             self.navigationController?.pushViewController(vc, animated: true)
             
             //sets existing values in AddVC text fields
-            vc.setExistingValuesPart1(myObj: cellToEdit)
-            
+            vc.editObj = cellToEdit
             //sets cellBeingEdited to the index of toDoArray of the cell
             vc.cellBeingEdited = indexPath.row
             
             //changes button title
-            vc.setBtnTitlePart1(title: "Edit")
+            vc.btnTitle = "Edit"
             
         }
         
         let delete = UIContextualAction.init(style: .destructive, title: "Delete") { (action, view, completion) in
             
-            self.myToDoList.deleteToDo(index: indexPath.row)
+            
+            CD.shared.appDelegate.persistentContainer.viewContext.delete(cellToEdit)
+            CD.shared.appDelegate.saveContext()
+            CD.shared.loadSavedDataToTable { (arr, error) in
+                self.myToDoList.toDoArray = arr!
+            }
+            
+            
             self.toDoList.reloadData()
             
         }

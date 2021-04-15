@@ -7,26 +7,26 @@
 
 import Foundation
 
+
+
 class ToDoList {
     
-   private lazy var toDoArray: [ToDo] = []
+    
+    var savedArr: [String] = []
+    
+    lazy var toDoArray: [ToDoEnt] = []
     
     //adds or edits contents of toDoArray
-    func addToDo(title: String, description: String, deadline: String, index: Int?){
-        let newTask = ToDo.init()
-        newTask.title = title
-        newTask.description = description
-        newTask.deadline = deadline
+    func addToDo(title: String, description: String, deadline: String, index: Int?, completionHandler: (()->())?){
+        
         if index == nil{
-            toDoArray.append(newTask)
+            //toDoArray.append(newTask)
+            CD.shared.saveData(title: title, description: description, deadline: deadline, complete: false)
         }else{
-            toDoArray[index!] = newTask
+            //toDoArray[index!] = newTask
         }
     }
     
-    func deleteToDo(index: Int){
-        toDoArray.remove(at: index)
-    }
     
     
     func numThingsToDo() -> Int{
@@ -34,7 +34,7 @@ class ToDoList {
     }
     
     func getTask(index: Int) -> String{
-        return toDoArray[index].title
+        return toDoArray[index].title ?? ""
     }
     
     func getDescription(index: Int) -> String {
@@ -42,16 +42,24 @@ class ToDoList {
     }
     
     func getDeadline(index: Int) -> String{
-        return toDoArray[index].deadline 
+        return toDoArray[index].deadline ?? ""
     }
     
     func isComplete(index: Int) -> Bool{
         return toDoArray[index].complete
     }
     
-    func getToDo(index: Int) -> ToDo{
+    func getToDo(index: Int) -> ToDoEnt{
         return toDoArray[index]
     }
     
+    func getToDoArray() -> [ToDoEnt]{
+        return toDoArray
+    }
+    
+    deinit {
+        print("hello")
+    }
     
 }
+

@@ -24,6 +24,7 @@ class LoginViewController: BaseViewController{
      
     }
     
+    #warning("make an error function in view model")
     //pushes listViewController on login button push
     @IBAction func login(_ sender: UIButton) {
         if usernameTF.text != "" && passwordTF.text != ""{
@@ -31,11 +32,18 @@ class LoginViewController: BaseViewController{
             let vc = st.instantiateViewController(identifier: ViewControllerConstants.CListViewController)
             navigationController?.pushViewController(vc, animated: true)
         }else {
-            print("tfs can't be empty")
-            //alert
+            if usernameTF.text == "" {
+                usernameTF.changeBorderColor(borderWidth: 5, color: .red)
+            }
+            if passwordTF.text == "" {
+                passwordTF.changeBorderColor(borderWidth: 5, color: .red)
+            }
         }
+    
        
     }
+    
+    
 
 
 }
