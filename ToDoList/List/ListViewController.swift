@@ -7,9 +7,12 @@
 
 import UIKit
 import CoreData
+import ViewAnimator
 
 
-class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
+class ListViewController: BaseViewController, SendCompletedInfo{
+    
+    
 
     @IBOutlet weak var toDoList: UITableView!
        
@@ -18,13 +21,10 @@ class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //myToDoList.convertToToDos()
-        
+            
         toDoList.delegate = self
         toDoList.dataSource = self
             
-        
         //adds plus bar button item
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewTask))
         navigationItem.rightBarButtonItem = addButton
@@ -35,16 +35,33 @@ class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
         
     }
     
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        let anim = AnimationType.random()
+//        let zoomAnimation = AnimationType.zoom(scale: 0.2)
+//        let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
+//        UIView.animate(views: toDoList.visibleCells,
+//                       animations: [zoomAnimation],
+//                       delay: 0.5)
+//    }
+    
+    
     
     override func viewDidAppear(_ animated: Bool) {
         CD.shared.loadSavedDataToTable { (arr, error) in
             self.myToDoList.toDoArray = arr ?? []
             self.toDoList.reloadData()
         }
+        
+//        let anim = AnimationType.random()
+//        let zoomAnimation = AnimationType.zoom(scale: 0.2)
+//        let rotateAnimation = AnimationType.rotate(angle: CGFloat.pi/6)
+//        UIView.animate(views: toDoList.visibleCells,
+//                       animations: [rotateAnimation /*anim, zoomAnimation*/],
+//                       delay: 0.5)
     }
     
     @objc func openSettings(){
-        let vc = SettingsViewController(nibName: "SettingsViewController", bundle: nil)
+        let vc = SettingsViewController(nibName: ViewControllerConstants.CSettingsViewController, bundle: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -54,27 +71,13 @@ class ListViewController: BaseViewController, fillToDoCell, SendCompletedInfo{
     @IBAction func addNewTask(_ sender: UIBarButtonItem) {
         let st = UIStoryboard.init(name: "Main", bundle: nil)
         let vc = st.instantiateViewController(identifier: ViewControllerConstants.CAddViewController) as! AddViewController
-        vc.delegate = self
+        vc.editObj = ToDoEnt.init(context: CD.shared.persistentContainer.viewContext)
         navigationController?.pushViewController(vc, animated: true)
     }
-    
-    #warning("should be a separate method in vm")
-    //appends a new ToDo object to the ToDoArray in the vm
-    func fillCell(title: String, description: String, deadline: String, index: Int?) {
-        myToDoList.addToDo(title: title, description: description, deadline: deadline, index: index) {
-            CD.shared.loadSavedDataToTable { (arr, error) in
-                self.myToDoList.toDoArray = arr!
-            }
-            self.toDoList.reloadData()
-        }
-        
-        //reloading the data here stops lag from data upload on view did apear
-        //toDoList.reloadData()
-    }
-    
+
     
     //reloads the table view when segmented control is changed. Causes cell alpha to change on switch.
-    func changeCompleteStatus(task: String) {
+    func changeCompleteStatus() {
         toDoList.reloadData()
     }
     
@@ -111,15 +114,11 @@ extension ListViewController:  UITableViewDelegate, UITableViewDataSource{
             //pushes AddViewCOntroller
             let st = UIStoryboard.init(name: "Main", bundle: nil)
             let vc = st.instantiateViewController(identifier: ViewControllerConstants.CAddViewController) as! AddViewController
-            //fill cell delegate
-            vc.delegate = self
             
             self.navigationController?.pushViewController(vc, animated: true)
             
             //sets existing values in AddVC text fields
             vc.editObj = cellToEdit
-            //sets cellBeingEdited to the index of toDoArray of the cell
-            vc.cellBeingEdited = indexPath.row
             
             //changes button title
             vc.btnTitle = "Edit"
@@ -129,8 +128,8 @@ extension ListViewController:  UITableViewDelegate, UITableViewDataSource{
         let delete = UIContextualAction.init(style: .destructive, title: "Delete") { (action, view, completion) in
             
             
-            CD.shared.appDelegate.persistentContainer.viewContext.delete(cellToEdit)
-            CD.shared.appDelegate.saveContext()
+            CD.shared.persistentContainer.viewContext.delete(cellToEdit)
+            CD.shared.saveContext()
             CD.shared.loadSavedDataToTable { (arr, error) in
                 self.myToDoList.toDoArray = arr!
             }

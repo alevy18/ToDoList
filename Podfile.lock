@@ -1,16 +1,20 @@
 PODS:
   - IQKeyboardManager (6.5.6)
+  - ViewAnimator (3.0.2)
 
 DEPENDENCIES:
   - IQKeyboardManager
+  - ViewAnimator
 
 SPEC REPOS:
   trunk:
     - IQKeyboardManager
+    - ViewAnimator
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 2a6e97afdafc7becf0cb17a9a8d795e3a980717f
+  ViewAnimator: 16435576cd44fca0b0d63147d5031fd3e91d295a
 
-PODFILE CHECKSUM: f504b554e05e1449b7b473aec59080e4837f871c
+PODFILE CHECKSUM: 6a9af50e7a5e864321f9ca4f9edc3af51338f346
 
 COCOAPODS: 1.10.1

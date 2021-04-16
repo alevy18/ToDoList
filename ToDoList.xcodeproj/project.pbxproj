@@ -20,7 +20,6 @@
 		3457E7F2261BCF570077D8DC /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E7F1261BCF570077D8DC /* AddViewController.swift */; };
 		3457E7F5261BCF6E0077D8DC /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E7F4261BCF6E0077D8DC /* ListViewController.swift */; };
 		3457E7F8261BCF800077D8DC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E7F7261BCF800077D8DC /* LoginViewController.swift */; };
-		3457E7FC261BCFA70077D8DC /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E7FB261BCFA70077D8DC /* ToDo.swift */; };
 		3457E7FF261BD0C20077D8DC /* ToDoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E7FE261BD0C20077D8DC /* ToDoTableViewCell.swift */; };
 		3457E802261BD2070077D8DC /* toDoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E801261BD2070077D8DC /* toDoListViewModel.swift */; };
 		3457E874261CF9AF0077D8DC /* constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3457E873261CF9AF0077D8DC /* constant.swift */; };
@@ -65,7 +64,6 @@
 		3457E7F1261BCF570077D8DC /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		3457E7F4261BCF6E0077D8DC /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		3457E7F7261BCF800077D8DC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		3457E7FB261BCFA70077D8DC /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
 		3457E7FE261BD0C20077D8DC /* ToDoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewCell.swift; sourceTree = "<group>"; };
 		3457E801261BD2070077D8DC /* toDoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = toDoListViewModel.swift; sourceTree = "<group>"; };
 		3457E80F261CAC6F0077D8DC /* ToDoListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ToDoListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +141,6 @@
 				34F5B170261FAE9E00767851 /* Common Files */,
 				3457E7E2261BCEEB0077D8DC /* Main.storyboard */,
 				3457E7E5261BCEF00077D8DC /* Assets.xcassets */,
-				3457E873261CF9AF0077D8DC /* constant.swift */,
 				3457E7E7261BCEF00077D8DC /* LaunchScreen.storyboard */,
 				3457E7EA261BCEF00077D8DC /* Info.plist */,
 			);
@@ -165,7 +162,6 @@
 			children = (
 				3457E7FE261BD0C20077D8DC /* ToDoTableViewCell.swift */,
 				3457E801261BD2070077D8DC /* toDoListViewModel.swift */,
-				3457E7FB261BCFA70077D8DC /* ToDo.swift */,
 				3457E7F4261BCF6E0077D8DC /* ListViewController.swift */,
 				343174BC261E3AB6008F251A /* SmartSegmentControl.swift */,
 			);
@@ -199,6 +195,7 @@
 				3450EEC226275E57002F4BDD /* CoreData.swift */,
 				343174B2261E1C52008F251A /* BaseViewController.swift */,
 				343174AE261E0A20008F251A /* extensions.swift */,
+				3457E873261CF9AF0077D8DC /* constant.swift */,
 			);
 			path = "Common Files";
 			sourceTree = "<group>";
@@ -408,7 +405,6 @@
 				3457E7F8261BCF800077D8DC /* LoginViewController.swift in Sources */,
 				3457E7DD261BCEEB0077D8DC /* AppDelegate.swift in Sources */,
 				3457E7F2261BCF570077D8DC /* AddViewController.swift in Sources */,
-				3457E7FC261BCFA70077D8DC /* ToDo.swift in Sources */,
 				3457E7F5261BCF6E0077D8DC /* ListViewController.swift in Sources */,
 				3457E87B261D04880077D8DC /* LoginViewModel.swift in Sources */,
 				3457E7DF261BCEEB0077D8DC /* SceneDelegate.swift in Sources */,

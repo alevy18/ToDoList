@@ -8,7 +8,7 @@
 import UIKit
 
 protocol SendCompletedInfo {
-    func changeCompleteStatus(task: String)
+    func changeCompleteStatus()
 }
 
 class ToDoTableViewCell: UITableViewCell {
@@ -38,9 +38,8 @@ class ToDoTableViewCell: UITableViewCell {
         }else{
             model?.complete = true
         }
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        appDelegate.saveContext()
-        delegate?.changeCompleteStatus(task: (model?.title)!)
+        CD.shared.saveContext()
+        delegate?.changeCompleteStatus()
     
     }
     
@@ -52,7 +51,6 @@ class ToDoTableViewCell: UITableViewCell {
         deadlineTxtField.text = toDoObj.deadline
         isCOmpletedSwitch.model = toDoObj
         
-        
         //darkens cell if marked complete
         if toDoObj.complete == true{
             isCOmpletedSwitch.selectedSegmentIndex = 1
@@ -61,7 +59,6 @@ class ToDoTableViewCell: UITableViewCell {
             isCOmpletedSwitch.selectedSegmentIndex = 0
             contentView.backgroundColor = UIColor.init(hue: 0.5, saturation: 0.26, brightness: 0.76, alpha: 1.0)
         }
-        
         
         //makes TextView and TF uneditable
         disableScreenElements()

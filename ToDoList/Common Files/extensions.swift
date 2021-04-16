@@ -31,5 +31,10 @@ extension UIView {
     func font(){
         
     }
+//    
+//    func pushFromMainStoryboard(identifier: String, vcClass: UIViewController){
+//        let st = UIStoryboard.init(name: "Main", bundle: nil)
+//        let vc = st.vcClass(identifier)
+//    }
     
 }

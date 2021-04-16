@@ -7,9 +7,6 @@
 
 import UIKit
 
-protocol fillToDoCell{
-    func fillCell(title: String, description: String, deadline: String, index: Int?)
-}
 
 class AddViewController: BaseViewController {
     
@@ -18,16 +15,11 @@ class AddViewController: BaseViewController {
     var editObj: ToDoEnt?
     var btnTitle: String?
     
-    var delegate: fillToDoCell?
     
     var datePick = datePicker.init()
     
     //Add button and it's text var
     @IBOutlet weak var add_editButton: UIButton!
-    
-    
-    //index of cell that was swiped
-    var cellBeingEdited: Int?
     
     //date picker outlet
     @IBOutlet weak var datpicker: UIPickerView!
@@ -59,20 +51,15 @@ class AddViewController: BaseViewController {
    
     //sends command to add or edit toDoArray
     @IBAction func add(_ sender: UIButton) {
-        let arrOfVcs = navigationController?.viewControllers
-        for vc in arrOfVcs!{
-            if vc is ListViewController {
-                delegate?.fillCell(title: titleText.text ?? "", description: descriptionText.text ?? "", deadline: deadlineText.text ?? "", index: cellBeingEdited)
-                let appDelegate = UIApplication.shared.delegate as! AppDelegate
-                avm.toDoEntModel?.title = titleText.text ?? ""
-                avm.toDoEntModel?.descrip = descriptionText.text ?? ""
-                avm.toDoEntModel?.deadline = deadlineText.text ?? ""
-                appDelegate.saveContext()
-                
-                navigationController?.popToViewController(vc, animated: true)
-                break
-            }
-        }
+        
+        avm.toDoEntModel = editObj
+        avm.toDoEntModel?.title = titleText.text ?? ""
+        avm.toDoEntModel?.descrip = descriptionText.text ?? ""
+        avm.toDoEntModel?.deadline = deadlineText.text ?? ""
+        CD.shared.saveContext()
+        
+        navigationController?.popViewController(animated: true)
+
     }
     
     
@@ -92,7 +79,6 @@ class AddViewController: BaseViewController {
         titleText.text = avm.getModelTitle()
         descriptionText.text = avm.getModelDescrip()
         deadlineText.text = avm.getModelDeadline()
-        
     }
     
 }

@@ -7,6 +7,7 @@ target 'ToDoList' do
 
   # Pods for ToDoList
 pod 'IQKeyboardManager'
+pod  "ViewAnimator"
 
   target 'ToDoListTests' do
     inherit! :search_paths

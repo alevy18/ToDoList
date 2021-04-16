@@ -11,24 +11,8 @@ import Foundation
 
 class ToDoList {
     
-    
-    var savedArr: [String] = []
-    
     lazy var toDoArray: [ToDoEnt] = []
-    
-    //adds or edits contents of toDoArray
-    func addToDo(title: String, description: String, deadline: String, index: Int?, completionHandler: (()->())?){
-        
-        if index == nil{
-            //toDoArray.append(newTask)
-            CD.shared.saveData(title: title, description: description, deadline: deadline, complete: false)
-        }else{
-            //toDoArray[index!] = newTask
-        }
-    }
-    
-    
-    
+
     func numThingsToDo() -> Int{
         return toDoArray.count
     }
@@ -55,10 +39,6 @@ class ToDoList {
     
     func getToDoArray() -> [ToDoEnt]{
         return toDoArray
-    }
-    
-    deinit {
-        print("hello")
     }
     
 }

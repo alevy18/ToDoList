@@ -13,6 +13,7 @@ import UIKit
 struct ViewControllerConstants {
     static let CListViewController = "ListViewController"
     static let CAddViewController = "AddViewController"
+    static let CSettingsViewController = "SettingsViewController"
 }
 
 struct ColorConstants{

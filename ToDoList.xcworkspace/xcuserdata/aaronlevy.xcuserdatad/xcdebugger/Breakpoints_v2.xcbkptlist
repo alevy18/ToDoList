@@ -7,166 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "700FE1EF-4066-4266-BA74-696731BF86F2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/AddTask/AddViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "add(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1DC47910-AC06-4A52-9B73-1DB92CB50D7F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
-            landmarkName = "fillCell(title:description:deadline:index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "CA684879-2160-48B0-9E36-35AA7C7CFB2F"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "fillCell(title:description:deadline:index:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "CA684879-2160-48B0-9E36-35AA7C7CFB2F - 7fcfc0a038dcdfbb"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "ToDoList.ListViewController.fillCell(title: Swift.String, description: Swift.String, deadline: Swift.String, index: Swift.Optional&lt;Swift.Int&gt;) -&gt; ()"
-                  moduleName = "ToDoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aaronlevy/Desktop/Apolis/ToDoList/ToDoList/List/ListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "120">
-               </Location>
-               <Location
-                  uuid = "CA684879-2160-48B0-9E36-35AA7C7CFB2F - 94e009c7df9f1d"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in ToDoList.ListViewController.fillCell(title: Swift.String, description: Swift.String, deadline: Swift.String, index: Swift.Optional&lt;Swift.Int&gt;) -&gt; ()"
-                  moduleName = "ToDoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aaronlevy/Desktop/Apolis/ToDoList/ToDoList/List/ListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "64"
-                  endingLineNumber = "64"
-                  offsetFromSymbolStart = "44">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "66352236-5393-4631-A49F-3B940A5E883D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "fillCell(title:description:deadline:index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "30887669-966C-4DAA-B9EE-C81CDB22CB2B"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "fillCell(title:description:deadline:index:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "30887669-966C-4DAA-B9EE-C81CDB22CB2B - 94e009c7df9f7e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in ToDoList.ListViewController.fillCell(title: Swift.String, description: Swift.String, deadline: Swift.String, index: Swift.Optional&lt;Swift.Int&gt;) -&gt; ()"
-                  moduleName = "ToDoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aaronlevy/Desktop/Apolis/ToDoList/ToDoList/List/ListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "65">
-               </Location>
-               <Location
-                  uuid = "30887669-966C-4DAA-B9EE-C81CDB22CB2B - ede94a8987259c63"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Swift.Array&lt;ToDoList.ToDoEnt&gt;&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in closure #1 () -&gt; () in ToDoList.ListViewController.fillCell(title: Swift.String, description: Swift.String, deadline: Swift.String, index: Swift.Optional&lt;Swift.Int&gt;) -&gt; ()"
-                  moduleName = "ToDoList"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/aaronlevy/Desktop/Apolis/ToDoList/ToDoList/List/ListViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "65"
-                  endingLineNumber = "65"
-                  offsetFromSymbolStart = "118">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3BCA55AB-DCEF-48FC-9668-F213359C813D"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ListViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "fillCell(title:description:deadline:index:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "4F5FC4C4-418F-42B6-AE75-F92632428D3A"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -183,7 +23,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "17E4A19F-9A65-4F8C-A099-005CE154B923"
+            uuid = "183EEFA1-017C-44A7-8484-15A8B1D31D09"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
@@ -192,22 +32,6 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "41"
             endingLineNumber = "41"
-            landmarkName = "didFinishTask(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "183EEFA1-017C-44A7-8484-15A8B1D31D09"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ToDoTableViewCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
             landmarkName = "didFinishTask(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -231,16 +55,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "ECABE27C-F847-4889-BEA8-DBC308867DF8"
+            uuid = "10738A05-39A7-4540-A6B1-FEBC1FCA3F27"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ToDoList/List/ListViewController.swift"
+            filePath = "ToDoList/Common Files/CoreData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
-            landmarkName = "tableView(_:trailingSwipeActionsConfigurationForRowAt:)"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "saveNewObj(obj:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
